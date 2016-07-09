@@ -1,0 +1,33 @@
+{
+    "bookname": "区款链算法与实践",
+    "description": "第一本详细讲解区款链算法的免费电子书籍",
+    "author": "Imfly",
+    "language": "zh",
+    "keywords": [
+        "bitcoin",
+        "nodejs"
+    ],
+    "ignores": ["backup", "_book", "styles", "assets", "node_modules","sources", "doc"],
+    "sortedBy": "-",
+    "homepage": "http://algorithms-on-blockchain.ebookchain.org",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/imfly/algorithms-on-blockchain.git"
+    },
+    "bugs": {
+        "url": "https://github.com/imfly/algorithms-on-blockchain/issues"
+    },
+    "plugins": [
+      "baidu",
+      "-livereload"
+    ],
+    "pluginsConfig": {
+        "baidu": {
+            "token": "a489cddfaf5ed40abc3a60e2783e8019"
+        }
+    },
+    "structure": {
+      "readme": "README.md"
+    }
+}
