@@ -48,27 +48,29 @@
 
 #### null（空）
 
-`null` 意思是“空”或不存在的值，被程序员用来表明 “没有值”。null 是一个原始值（primitive value）,你可以把null赋给任何变量。null不是一个对象，它是一个原始值。例如，你不能给它添加属性。有时人们错误地认为它是一个对象,因为`typeof null`返回“object”。
+`null` 意思是“空”或不存在的值，被程序员用来表明 “没有值”。null 是一个基本值（primitive value）,你可以把null赋给任何变量。null不是一个对象，它是一个基本值。例如，你不能给它添加属性。有时人们错误地认为它是一个对象,因为`typeof null`返回“object”。
 
 顺便说一下（Btw）, `null == undefined` 参考这里: [history of typeof null](http://www.2ality.com/2013/10/typeof-null.html)
 
-## 2\. == Vs ===
+## 2. == 与 ===
 
-**问题:** What are the differences between `==` and `===`?
+**问题:** `==` 和 `===`之间有什么不同?
 
-**答案:** The simplest way of saying it is that == will not check types and === will check whether both sides are of the same type. So, == is tolerant. But under the hood it converts to a convenient type, in order to have both as the same type, and then does the comparison.
+**答案:** 最简单的区分就是，`==` 不检查类型，`===` 会检查两边是否是同一类型。
 
-=== compares the types and values. Hence, if both sides are not same type, the answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean), they must share the same value.
+因此，`==` 比较宽容，但是在后台，它应该转化为合适的类型，以便两边都有相同类型，然后比较。
 
-**Rule for implicit coercion:** Comparison by using == does implicit type conversion under the hood. The rules for implicit coercion are as follows-
+`===` 比较类型和值。因此，如果两边不是相同类型，答案总是 `false`。比如，如果你比较两个字符串，它们必须有相同的字符集。对于其他基本值(number, boolean)，它们必须有相同值。
 
-*   If both operands are same type use ===
+**隐含强制规则:** 使用 == 比较在后台要做隐含的类型转换，隐含强制规则如下：
+
+*   如果两个操作对象是同一类型，用 ===
 *   undefined == null
-*   If one operands is string another is number, convert string to number
-*   If one is boolean and another is non-boolean, convert boolean to number and then perform comparison
-*   While comparing a string or number to an object, try to convert the object to a primitive type and then try to compare
+*   如果一个是字符串（string），另一个是数字（number），转化字符串为数字
+*   如果一个是布尔型（boolean），另一个是非布尔型，把布尔型转化为数字型（number），然后比较
+*   当用一个字符串（string）或数字（number）与一个对象比较时，设法把对象转化为基本类型再比较
 
-Be careful while comparing objects — identifiers must reference the same objects or same array.
+比较对象时要注意，标识符必须引用相同的对象或相同的数组。
 
     var a = {a: 1};
     var b = {a: 1};
@@ -79,9 +81,9 @@ Be careful while comparing objects — identifiers must reference the same objec
     a == c//true
     a === c //true
 
-Special note: NaN, null and undefined will never === another type. NaN does not even === itself.
+特别注意: NaN, null 和 undefined 从类不会 === 另一个类型。 NaN 甚至不会 === 它自己。
 
-**Homework:** [Read confusing special cases of NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
+**作业:** [NaN几个容易混淆的特殊情况](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
 
 ## 3\. Object Equality
 
