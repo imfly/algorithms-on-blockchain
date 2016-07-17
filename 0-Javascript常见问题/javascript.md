@@ -1,8 +1,8 @@
 #### List of Questions
 
 1.  [`null` 和 `undefined`有什么区别?](#nullVsUndefined)
-2.  [What are the differences between `==` and `===`?](#doubleVsTripleEqual)
-3.  [How would you compare two objects in JavaScript?](#objectEquality)
+2.  [`==` 和 `===`之间有什么不同?](#doubleVsTripleEqual)
+3.  [怎么比较两个JavaScript对象?](#objectEquality)
 4.  [11+ true false related questions that will trick you.](#trueLies)
 5.  [As `[]` is true, `[]==true` should also be true. right?](#truthyVsEqality)
 6.  [How could you write a method on instance of a date which will give you next day?](#extendObject)
@@ -85,13 +85,13 @@
 
 **作业:** [NaN几个容易混淆的特殊情况](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN)
 
-## 3\. Object Equality
+## 3. 对象相等
 
-**问题:** How would you compare two objects in JavaScript?
+**问题:** 怎么比较两个JavaScript对象?
 
-**Basics:** JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and user defined objects are compared by their reference. This means it compares whether two objects are referring to the same location in memory.
+**基础知识:** JavaScript有两种方法用来测试相等。像字符串、数值等基本类型可以使用它们的值来比较，而诸如数组、日期，以及用户定义的对象等，要通过比较它们的引用值，也就是说比比两个对象是不是引用了内存里同一个位置。
 
-**答案:** Equality check will check whether two objects have the same value for the same property. To check that, you can get the keys for both the objects. If the number of properties doesn't match, these two objects are not equal. Secondly, you will check whether each property has the same value in both objects. If all the properties have the same value, they are equal.
+**答案:** 相等检查将检查两个对象相同的属性是否有相同的值，为做到这一点，可以获取两个对象的所有键。首先，如果属性数量（键个数）不同，这两个对象就不相等;然后，检查两个对象中的每个属性是否有相同的值，如果所有属性都有相同的值，它们就相等。
 
     function isEqual(a, b) {
         var aProps = Object.getOwnPropertyNames(a),
@@ -118,10 +118,6 @@
 *   If one object has a property with value undefined, while another object doesn't have the property (which thus evaluates as undefined). Btw, you can solve this problem by using hasOwnProperty
 
 ref: [object equality in JS](http://designpepper.com/blog/drips/object-equality-in-javascript.html), [Underscore.js isEqual function](http://underscorejs.org/docs/underscore.html#section-90)
-
-
-
-
 
 ## 4\. True Lies
 
